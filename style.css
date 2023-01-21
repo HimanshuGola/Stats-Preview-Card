@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+
+:root{
+    --ff-main: 'Inter', sans-serif;
+    --ff-accent: 'Lexend Deca', sans-serif;
+
+    --fw-regular: 400;                                /*For both font families*/
+    --fw-bolder: 700;                                 /*For Inter font family only*/
+
+    --clr-primary-900: hsl(233, 47%, 7%);           /*Main Background*/
+    --clr-primary-700: hsl(244, 38%, 16%);          /*Card Background*/
+    --clr-primary-300: hsl(277, 64%, 61%);          /*Accent*/
+
+    --clr-neutral-100: hsl(0, 0%, 100%);            /*Main Heading, Stats*/
+    --clr-neutral-75: hsla(0, 0%, 100%, 0.75);      /*Main Paragraph*/
+    --clr-neutral-60: hsla(0, 0%, 100%, 0.6);       /*Stat Heading*/
+
+}
+
+
+/* Reset */
+
+*, *::before, *::after {
+box-sizing: border-box;
+}
+* {
+margin: 0;
+}
+html, body {
+min-height: 100vh;
+}
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, button, textarea, select {
+font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+#root, #__next {
+isolation: isolate;
+}
+
+/* Utility Classes */
+
+.flex-group{
+    --flex-direction: column;
+    --flex-jc-center: center;
+    --flex-ai-center: center;
+    --gap: 1rem;
+
+    display: flex;
+    flex-direction: var(--flex-direction);
+    justify-content: var(--flex-jc-center);
+    align-items: var(--flex-ai-center);
+    gap: var(--gap);
+}
+
+
+/* Main CSS */
+
+body{
+    font-family: var(--ff-main);
+    background-color: var(--clr-primary-900);
+    color: white;
+}
+
+.main-card{
+    --flex-direction: column-reverse;
+    background-color: var(--clr-primary-700);
+    max-width: 560px;
+    margin: 1.5rem 6%;
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.content{
+    padding: 1.5rem 2rem;
+    --gap: 2rem;
+}
+
+.message-box{
+    text-align: center;
+}
+
+.main-heading{
+    font-size: 1.7rem;
+    font-weight: var(--fw-bolder);
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    color: var(--clr-neutral-100);
+}
+
+.accent-color{
+    color: var(--clr-primary-300);
+}
+
+.main-message{
+    font-size: 0.925rem;
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-75);
+    line-height: 1.75;
+}
+
+.stats{
+    --gap: 1.5rem;
+    margin-bottom: 1rem;
+    
+}
+
+.stats > div{
+    --gap: 0.2rem;
+}
+
+.stat-data{
+    font-size: 1.45rem;
+    font-weight: var(--fw-bolder);
+    letter-spacing: 0.5px;
+    color: var(--clr-neutral-100);
+    text-transform: uppercase;
+}
+
+.stat-name{
+    font-size: 0.8rem;
+    font-weight: var(--fw-regular);
+    font-family: var(--ff-accent);
+    letter-spacing: 0.5px;
+    color: var(--clr-neutral-60);
+    text-transform: uppercase;
+}
+
+.image{
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: hsla(280, 100%, 37%, 0.5);
+}
+
+
+@media (min-width: 1200px){
+    .main-card{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 1080px;
+    }
+
+    .content{
+        --flex-ai-center: none;
+        --gap: 4.2rem;
+        padding: 0 4rem;
+    }
+
+    .message-box{
+        text-align: start;
+        --gap: 1.5rem;
+    }
+
+    .main-heading{
+        font-size: 2.2rem;
+    }
+
+    .main-message{
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        line-height: 1.8;
+    }
+    
+    .stats{
+        --flex-jc-center: none;
+        --flex-ai-center: none;
+        --flex-direction: row;
+        --gap: 4rem;
+
+        margin-bottom: 0;
+    }
+
+    .stats > div{
+        --flex-ai-center: none;
+    }
+
+    .stat-data{
+        font-size: 1.45rem;
+    }
+
+    .stat-name{
+        letter-spacing: 1px;
+    }
+}
